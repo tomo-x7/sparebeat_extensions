@@ -50,7 +50,7 @@ document.body.addEventListener("click", () => {
 
 addEventListener("keydown", (event) => {
 	if (!waitingkey) return;
-	// @ts-ignore
+	// @ts-expect-error
 	keymap[waitingkey.id] = event.keyCode;
 	waitingkey.innerText = event.keyCode === 32 ? "space" : event.key;
 	log.innerText = JSON.stringify(keymap);

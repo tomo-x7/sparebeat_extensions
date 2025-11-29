@@ -9,7 +9,7 @@ const rgb2hex = (inputrgba: string | undefined) => {
 	if (!inputrgba) return;
 	const rgba = inputrgba.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
 	return rgba && rgba.length === 5
-		? `${`0${Number.parseInt(rgba[1]).toString(16)}`.slice(-2)}${`0${Number.parseInt(rgba[2]).toString(16)}`.slice(-2)}${`0${Number.parseInt(rgba[3]).toString(16)}`.slice(-2)}${`0${(255 * Number.parseFloat(rgba[4])).toString(16)}`.slice(-2)}`
+		? `${`0${Number.parseInt(rgba[1], 10).toString(16)}`.slice(-2)}${`0${Number.parseInt(rgba[2], 10).toString(16)}`.slice(-2)}${`0${Number.parseInt(rgba[3], 10).toString(16)}`.slice(-2)}${`0${(255 * Number.parseFloat(rgba[4])).toString(16)}`.slice(-2)}`
 		: "";
 };
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

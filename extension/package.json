@@ -10,7 +10,7 @@
 		"@babel/preset-env": "^7.24.8",
 		"@babel/preset-typescript": "^7.24.7",
 		"@babel/register": "^7.24.6",
-		"@biomejs/biome": "^2.1.1",
+		"@biomejs/biome": "^2.2.3",
 		"@clack/prompts": "^0.11.0",
 		"@types/chrome": "^0.0.268",
 		"@types/webpack": "^5.28.5",

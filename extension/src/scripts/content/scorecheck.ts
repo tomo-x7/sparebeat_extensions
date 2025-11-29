@@ -19,10 +19,10 @@ const parseTrack = ({
 		isComplete: [false, false, false],
 		score: [null, null, null],
 	};
-	playStatuses.map(({ difficulty, isComplete, bestScore }) => {
+	for (const { difficulty, isComplete, bestScore } of playStatuses) {
 		track.isComplete[difficulty - 1] = isComplete;
 		track.score[difficulty - 1] = bestScore;
-	});
+	}
 	return track;
 };
 
