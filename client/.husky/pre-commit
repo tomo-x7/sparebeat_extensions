@@ -1,2 +1,0 @@
-cd extension
-pnpm exec lint-staged

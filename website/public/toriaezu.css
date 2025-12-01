@@ -76,7 +76,9 @@ body {
 
 .Score_label {
 	color: #fff;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 35px;
 	height: 35px;
 	line-height: 35px;
@@ -86,7 +88,9 @@ body {
 .Score_value {
 	margin: 10px 0;
 	color: #fff;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 80px;
 	height: 80px;
 	line-height: 80px;
@@ -95,7 +99,9 @@ body {
 
 .Score_diff {
 	color: #fff;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 35px;
 	height: 35px;
 	line-height: 35px;
@@ -117,7 +123,9 @@ body {
 
 .Rank_label {
 	color: #fff;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 35px;
 	height: 35px;
 	line-height: 35px;
@@ -129,7 +137,9 @@ body {
 .Rank_value {
 	margin-top: 10px;
 	color: #fff;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 80px;
 	height: 80px;
 	line-height: 80px;
@@ -149,7 +159,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	color: #fff;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 32px;
 	font-weight: 700;
 	line-height: 42px;
@@ -251,7 +263,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	color: #fff;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 32px;
 	font-weight: 700;
 	line-height: 42px;
@@ -302,7 +316,9 @@ body {
 	width: 240px;
 	height: 96px;
 	color: #000;
-	font-family: Nova Mono, sans-serif;
+	font-family:
+		Nova Mono,
+		sans-serif;
 	font-size: 40px;
 	line-height: 96px;
 	font-weight: 700;

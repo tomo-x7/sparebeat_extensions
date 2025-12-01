@@ -41,7 +41,9 @@ export default function Home({ searchParams }: { searchParams: { [key: string]: 
 export const dynamic = "force-dynamic";
 export async function generateMetadata({
 	searchParams,
-}: { searchParams: { [key: string]: string | string[] | undefined } }) {
+}: {
+	searchParams: { [key: string]: string | string[] | undefined };
+}) {
 	let querys = "";
 	for (const key in searchParams) {
 		querys += `${key}=${searchParams[key]}&`;

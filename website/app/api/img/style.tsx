@@ -1,5 +1,5 @@
-import type { ReactElement } from "react";
 import type React from "react";
+import type { ReactElement } from "react";
 export const style: {
 	[key: string]: React.CSSProperties;
 } = {
@@ -356,6 +356,7 @@ export const elem = (
 	}
 
 	const main = (
+		// biome-ignore lint/correctness/useUniqueElementIds: for style
 		<div id="rerere" style={ResultScreen}>
 			<div style={style.ResultScreen_before} />
 			<div style={style.ResultScreen_container}>
@@ -395,7 +396,6 @@ export const elem = (
 					<div style={style.Average}>
 						<div style={style.Average_before} />
 						<div style={Average_value}>
-							{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
 							<svg style={style.Average_inner} width="8" height="16" xmlns="http://www.w3.org/2000/svg">
 								<path d="m8,0l-8,8l8,8" fill="#FF0000" />
 							</svg>

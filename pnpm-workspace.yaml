@@ -1,0 +1,7 @@
+packages:
+  - extension
+  - website
+  - scripts
+
+onlyBuiltDependencies:
+  - esbuild

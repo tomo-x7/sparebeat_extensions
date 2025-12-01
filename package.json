@@ -1,0 +1,16 @@
+{
+	"name": "sparebeat_extensions",
+	"version": "2.2.1",
+	"description": "",
+	"private": true,
+	"scripts": {
+		"build": "echo build",
+		"check": "biome check --write"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "2.2.3",
+		"tsx": "^4.21.0"
+	},
+	"packageManager": "pnpm@10.24.0"
+}

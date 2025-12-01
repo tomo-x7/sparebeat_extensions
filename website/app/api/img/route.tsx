@@ -27,9 +27,9 @@ export async function GET(rawrequest: NextRequest) {
 			) : (
 				<div style={style.easy}>EASY </div>
 			)}
-			{rondom ? <div style={style.Track_layout}>RANDOM</div> : <></>}
-			{mirror ? <div style={style.Track_layout}>MIRROR</div> : <></>}
-			{bind ? <div style={style.Track_bind}>BIND</div> : <></>}
+			{rondom ? <div style={style.Track_layout}>RANDOM</div> : null}
+			{mirror ? <div style={style.Track_layout}>MIRROR</div> : null}
+			{bind ? <div style={style.Track_bind}>BIND</div> : null}
 		</>
 	);
 	const src = sp("src");
@@ -40,15 +40,15 @@ export async function GET(rawrequest: NextRequest) {
 	} = {
 		title: sp("title"),
 		artist: sp("artist"),
-		score: Number.parseInt(sp("score")),
-		diff: sp("diff") === "none" ? "none" : Number.parseInt(sp("diff").replaceAll(/[\[\]]/g, "")),
+		score: Number.parseInt(sp("score"), 10),
+		diff: sp("diff") === "none" ? "none" : Number.parseInt(sp("diff").replaceAll(/[[\]]/g, ""), 10),
 		rank: sp("rank"),
-		just: Number.parseInt(sp("just")),
-		rush: Number.parseInt(sp("rush")),
-		cool: Number.parseInt(sp("cool")),
-		miss: Number.parseInt(sp("miss")),
+		just: Number.parseInt(sp("just"), 10),
+		rush: Number.parseInt(sp("rush"), 10),
+		cool: Number.parseInt(sp("cool"), 10),
+		miss: Number.parseInt(sp("miss"), 10),
 		average: Number.parseFloat(sp("average").replace("±", "")),
-		chain: Number.parseInt(sp("chain")),
+		chain: Number.parseInt(sp("chain"), 10),
 		attack: Number.parseFloat(sp("attack")),
 		backcolor1: searchParams.has("backcolor1") ? sp("backcolor1").replaceAll("0", "1") : undefined,
 		backcolor2: searchParams.has("backcolor2") ? sp("backcolor2").replaceAll("0", "1") : undefined,

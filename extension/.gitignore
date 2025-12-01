@@ -1,5 +1,0 @@
-build.bat
-*.zip
-node_modules
-dist-*
-release-*
