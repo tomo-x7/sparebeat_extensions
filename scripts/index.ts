@@ -1,5 +1,6 @@
-import { exit } from "node:process";
 import { intro, select } from "@clack/prompts";
+import { checkCancel } from "./util.js";
+import { exit } from "node:process";
 
 // カレントディレクトリチェック
 try {
@@ -13,7 +14,7 @@ try {
 }
 
 intro("build and packaging utility");
-const target=await select({
+const target = await select({
 	message: "select target",
 	options: [
 		{ value: "chrome", label: "chrome" },
@@ -21,3 +22,4 @@ const target=await select({
 		{ value: "both", label: "both chrome and firefox" },
 	],
 });
+checkCancel(target);
