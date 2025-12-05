@@ -1,27 +1,33 @@
-import { globSync } from "node:fs";
-import { type BuildOptions, context } from "esbuild";
-import { build, type InlineConfig } from "vite";
-import { ACTIONS_DIR, actionsOutDir, CHROME_OUT_DIR } from "./const.js";
+import { resolve } from "node:path";
+import { type BuildOptions, build as esbuild } from "esbuild";
+import { globSync } from "glob";
+import { InlineConfig,build as vitebuild } from "vite";
+import { ACTIONS_DIR, CHROME_OUT, CHROME_OUT_DIR, CONTENTS_DIR } from "./const.js";
+import { rmdirSync, rmSync } from "node:fs";
 
 const actionHTML = Object.fromEntries(
-	globSync(`${ACTIONS_DIR}/*.html`).map((file) => {
-		const name=file.split("/").at(-1).split(".")[0];
+	globSync(resolve(ACTIONS_DIR, "*.html")).map((file) => {
+		const name = file.split("/").at(-1).split(".")[0];
 		return [name, file];
 	}),
 );
-console.log(actionHTML);
-const esBuildBase = {} satisfies BuildOptions;
 
+const esBuildBase = {
+	entryPoints:[resolve(CONTENTS_DIR,"editor","index.ts"),resolve(CONTENTS_DIR,"embed","index.ts")],bundle:true,
+} satisfies BuildOptions;
+const viteBase = (outDir:string)=>({
+	appType: "mpa",
+	root: ACTIONS_DIR,
+	build: { rollupOptions: { input: actionHTML },outDir,emptyOutDir:true },
+} satisfies InlineConfig);
 
-const viteBase = {
-	appType: "mpa",root:ACTIONS_DIR,
-	build: { rollupOptions: { input: actionHTML },outDir:actionsOutDir(CHROME_OUT_DIR) },
-} satisfies InlineConfig;
-
-build(viteBase)
-
-export function buildChrome() {
-	context(esBuildBase);
+export async function prodChrome() {
+	rmSync(CHROME_OUT_DIR,{force:true,recursive:true})
+	esbuild({ ...esBuildBase,outdir:CHROME_OUT_DIR });
+	vitebuild({...viteBase(CHROME_OUT.ACTIONS),})
 }
 
-export function buildFirefox() {}
+export async function prodFirefox() {}
+
+export async function devChrome() {}
+export async function devFirefox() {}
