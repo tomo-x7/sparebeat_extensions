@@ -1,43 +1,11 @@
 {
-	"name": "Sparebeat extensions",
-	"version": "{{version}}",
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "sparebeat_extensions@tomo-x.bsky.social",
 			"strict_min_version": "109.0"
 		}
 	},
-	"manifest_version": 3,
-	"description": "Sparebeatの各種便利ツール（非公式）",
-	"permissions": ["tabs", "clipboardWrite", "storage"],
-	"icons": {
-		"128": "images/icon128.png",
-		"48": "images/icon48.png",
-		"32": "images/icon32.png",
-		"16": "images/icon16.png"
-	},
-	"content_scripts": [
-		{
-			"matches": ["https://beta.sparebeat.com/*", "https://beta.sparebeat.com/simulator*"],
-			"js": ["scripts/contentScripts.js"],
-			"css": ["stylesheet.css"]
-		},
-		{
-			"matches": ["https://sparebeat.com/embed/"],
-			"js": ["scripts/embedScripts.js"],
-			"all_frames": true
-		},
-		{
-			"matches": ["https://spbe.bo-yakitarako.dev/*"],
-			"js": ["scripts/editorScripts.js"]
-		}
-	],
 	"background": {
-		"scripts": ["scripts/backgroundScripts.js"]
-	},
-	"action": {
-		"default_icon": "images/icon38.png",
-		"default_popup": "scripts/popup.html"
-	},
-	"host_permissions": ["https://sparebeatter.vercel.app/"]
+		"scripts": ["backgrounds/main.bg.js"]
+	}
 }

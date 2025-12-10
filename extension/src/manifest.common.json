@@ -1,0 +1,34 @@
+{
+	"name": "Sparebeat extensions",
+	"version": "{{version}}",
+	"manifest_version": 3,
+	"description": "Sparebeatの各種便利ツール（非公式）",
+	"permissions": ["tabs", "clipboardWrite", "storage"],
+	"icons": {
+		"128": "assets/icons/128.png",
+		"48": "assets/icons/48.png",
+		"32": "assets/icons/32.png",
+		"16": "assets/icons/16.png"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://beta.sparebeat.com/*", "https://beta.sparebeat.com/simulator*"],
+			"js": ["contents/content.c.js"],
+			"css": ["assets/stylesheet.css"]
+		},
+		{
+			"matches": ["https://sparebeat.com/embed/"],
+			"js": ["contents/embed.c.js"],
+			"all_frames": true
+		},
+		{
+			"matches": ["https://spbe.bo-yakitarako.dev/*"],
+			"js": ["contents/editor.c.js"]
+		}
+	],
+	"action": {
+		"default_icon": "assets/icons/38.png",
+		"default_popup": "actions/popup.html"
+	},
+	"host_permissions": ["https://sparebeatter.vercel.app/"]
+}

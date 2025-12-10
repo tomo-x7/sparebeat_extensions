@@ -4,7 +4,7 @@
 	"description": "",
 	"private": true,
 	"scripts": {
-		"build": "echo build",
+		"build": "tsx scripts/index.ts",
 		"check": "biome check --write"
 	},
 	"license": "MIT",
