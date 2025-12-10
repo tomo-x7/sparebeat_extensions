@@ -1,5 +1,5 @@
 import { render } from "solid-js/web";
-import { check } from "./contentScripts";
+import { polling } from "./util";
 import type { apires } from "./type";
 
 const keys: { 1: "levelEasy"; 2: "levelNormal"; 3: "levelHard" } = { 1: "levelEasy", 2: "levelNormal", 3: "levelHard" };
@@ -29,7 +29,7 @@ export async function genRate(data: apires["tracks"]) {
 		rawRates.push({ rate: 0 });
 	}
 	const rates = rawRates.toSorted((a, b) => b.rate - a.rate);
-	check(() => setRate(rates));
+	polling(() => setRate(rates));
 }
 function RateListElem({ v }: { v: rates[0] }) {
 	if (!v.id) return;
