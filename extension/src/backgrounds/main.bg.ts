@@ -35,12 +35,12 @@ function setAction(url: string) {
 	const pattern2 = /^https:\/\/beta.sparebeat.com\//;
 	const editorURL = /^https:\/\/spbe.bo-yakitarako.dev\//;
 	if (pattern.test(url)) {
-		chrome.action.setPopup({ popup: "scripts/popup.html" });
+		chrome.action.setPopup({ popup: "actions/popup.html" });
 	} else if (editorURL.test(url)) {
-		chrome.action.setPopup({ popup: "scripts/editorpopup.html" });
+		chrome.action.setPopup({ popup: "actions/editorpopup.html" });
 	} else if (pattern2.test(url)) {
-		chrome.action.setPopup({ popup: "scripts/popup.html" });
+		chrome.action.setPopup({ popup: "actions/popup.html" });
 	} else {
-		chrome.action.setPopup({ popup: "scripts/errorpopup.html" });
+		chrome.action.setPopup({ popup: "actions/errorpopup.html" });
 	}
 }

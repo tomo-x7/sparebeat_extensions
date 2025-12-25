@@ -4,7 +4,10 @@
 	"description": "",
 	"private": true,
 	"scripts": {
-		"build": "tsx scripts/index.ts",
+		"build:chrome": "tsx scripts/build.ts --chrome",
+		"build:firefox": "tsx scripts/build.ts --firefox",
+		"build:all": "tsx scripts/build.ts --chrome --firefox",
+		"zip": "tsx scripts/zip.ts",
 		"check": "biome check --write"
 	},
 	"license": "MIT",
