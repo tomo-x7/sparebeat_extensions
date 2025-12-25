@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { type BuildOptions, build } from "esbuild";
+import { solidPlugin } from "esbuild-plugin-solid";
 import { glob, globSync } from "glob";
 import { build as vitebuild } from "vite";
 import { zip } from "zip-a-folder";
@@ -56,7 +57,12 @@ async function _buildCommon() {
 		tsconfig: TSCONFIG,
 	} satisfies BuildOptions;
 	const contents = glob(resolve(CONTENTS_DIR, "*.c.{ts,tsx}")).then((files) =>
-		build({ ...esbuildBase, entryPoints: files, outdir: CONTENTS_COM_OUT_DIR }),
+		build({
+			...esbuildBase,
+			entryPoints: files,
+			outdir: CONTENTS_COM_OUT_DIR,
+			plugins: [solidPlugin()],
+		}),
 	);
 	const backgrounds = glob(resolve(BACKGROUNDS_DIR, "*.bg.ts")).then((files) =>
 		build({ ...esbuildBase, entryPoints: files, outdir: BACKGROUNDS_COM_OUT_DIR }),

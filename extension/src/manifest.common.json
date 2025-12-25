@@ -12,8 +12,8 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["https://beta.sparebeat.com/*", "https://beta.sparebeat.com/simulator*"],
-			"js": ["contents/content.c.js"],
+			"matches": ["https://beta.sparebeat.com/*"],
+			"js": ["contents/content.c.js", "contents/fullchain.c.js"],
 			"css": ["assets/stylesheet.css"]
 		},
 		{

@@ -1,7 +1,4 @@
-import { genRate } from "./rate";
 import { scorecheck } from "./scorecheck";
-import type { apires } from "./type";
-import { polling } from "./util";
 
 const gei = (id: string) => document.getElementById(id);
 const gec = (classname: string, num = 0) =>
@@ -46,12 +43,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			}
 			return true;
 		}
-		case "toppage":
-			toppage().then(sendResponse);
-			return true;
-		case "creators":
-			creators().then(sendResponse);
-			return true;
 		case "scorecheck":
 			scorecheck().then((data) => sendResponse(data));
 			return true;
@@ -59,42 +50,3 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			break;
 	}
 });
-async function toppage() {
-	try {
-		await fetch("/api/tracks/home")
-			.then((res) => res.json() as Promise<apires>)
-			.then((data) => {
-				polling(() => fullchain(data.tracks));
-				genRate(data.tracks);
-			});
-		await fetch("/api/tracks/recently?page=1")
-			.then((res) => res.json() as Promise<apires>)
-			.then((data) => {
-				polling(() => fullchain(data.tracks));
-			});
-	} catch {}
-}
-async function creators() {
-	try {
-		const page = new URLSearchParams(location.search).get("page") ?? "1";
-		await fetch(`/api/tracks/recently?page=${page}`)
-			.then((res) => res.json() as Promise<apires>)
-			.then((data) => {
-				polling(() => fullchain(data.tracks));
-			});
-	} catch {}
-}
-const sortDiff = (a: { difficulty: number }, b: { difficulty: number }) => b.difficulty - a.difficulty;
-async function fullchain(data: apires["tracks"]) {
-	for (const track of data) {
-		if (track.playStatuses.sort(sortDiff)[0]?.isComplete) {
-			const thistrackelem = document.getElementById(track.track.id);
-			if (!thistrackelem) {
-				throw new Error();
-			}
-			thistrackelem
-				.getElementsByClassName("music-list-item-score")[0]
-				.classList.add("sparebeat_extensions_fullchain");
-		}
-	}
-}

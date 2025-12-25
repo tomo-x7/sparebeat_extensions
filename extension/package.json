@@ -4,18 +4,9 @@
 	"private": true,
 	"devDependencies": {
 		"@types/chrome": "^0.0.268",
-		"lint-staged": "^16.1.2",
 		"typescript": "^5.6.3"
 	},
 	"dependencies": {
 		"solid-js": "^1.9.3"
-	},
-	"scripts": {
-		"chrome:dev": "webpack --stats-error-details --config conf/dev.chrome.js",
-		"chrome:prod": "webpack --stats-error-details --config conf/prod.chrome.js",
-		"firefox:dev": "webpack --stats-error-details --config conf/dev.firefox.js",
-		"firefox:prod": "webpack --stats-error-details --config conf/prod.firefox.js",
-		"release": "node release.js",
-		"check": "biome check --write"
 	}
 }

@@ -7,10 +7,6 @@
 		"rootDir": "./",
 		"moduleResolution": "bundler",
 		"baseUrl": "src",
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"checkJs": true,
-		"removeComments": true,
 		"esModuleInterop": true,
 		"strict": true,
 		"skipLibCheck": true,
@@ -19,6 +15,5 @@
 		"jsx": "preserve",
 		"jsxImportSource": "solid-js"
 	},
-	"include": ["src"],
-	"exclude": ["node_modules", "dist"]
+	"include": ["src"]
 }
