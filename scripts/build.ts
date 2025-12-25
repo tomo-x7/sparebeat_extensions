@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import { type BuildOptions, build } from "esbuild";
 import { glob, globSync } from "glob";
 import { build as vitebuild } from "vite";
+import { zip } from "zip-a-folder";
+import packageJson from "../package.json" with { type: "json" };
 import {
 	ACTIONS_COM_OUT_DIR,
 	ACTIONS_DIR,
@@ -19,8 +21,6 @@ import {
 	type Target,
 	TSCONFIG,
 } from "./const.js";
-import { zip } from "zip-a-folder";
-import packageJson from "../package.json" with { type: "json" };
 
 const actionHTML = Object.fromEntries(
 	globSync(resolve(ACTIONS_DIR, "*.html")).map((file) => {

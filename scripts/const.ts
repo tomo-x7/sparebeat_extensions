@@ -28,8 +28,8 @@ export interface Target {
 	ASSETS_OUT: string;
 	OUT_ROOT: string;
 	MANIFEST: string;
-	NAME:string
-};
+	NAME: string;
+}
 export const CHROME = {
 	ACTIONS_OUT: resolve(CHROME_OUT_DIR, "actions"),
 	CONTENTS_OUT: resolve(CHROME_OUT_DIR, "contents"),
@@ -37,7 +37,7 @@ export const CHROME = {
 	ASSETS_OUT: resolve(CHROME_OUT_DIR, "assets"),
 	OUT_ROOT: CHROME_OUT_DIR,
 	MANIFEST: resolve(SRC_DIR, "manifest.chrome.json"),
-	NAME:"chrome"
+	NAME: "chrome",
 } satisfies Target;
 export const FIREFOX = {
 	ACTIONS_OUT: resolve(FIREFOX_OUT_DIR, "actions"),
@@ -46,5 +46,5 @@ export const FIREFOX = {
 	ASSETS_OUT: resolve(FIREFOX_OUT_DIR, "assets"),
 	OUT_ROOT: FIREFOX_OUT_DIR,
 	MANIFEST: resolve(SRC_DIR, "manifest.firefox.json"),
-	NAME:"firefox"
+	NAME: "firefox",
 } satisfies Target;
