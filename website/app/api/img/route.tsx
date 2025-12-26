@@ -58,10 +58,20 @@ export async function GET(rawrequest: NextRequest) {
 		return new ImageResponse(elem(option, params), {
 			width: 1222,
 			height: 640,
+			headers: {
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+				"Access-Control-Allow-Headers": "Content-Type, Authorization",
+			},
 		});
 	}
 	return new ImageResponse(elem(option, params), {
 		width: 960,
 		height: 640,
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+			"Access-Control-Allow-Headers": "Content-Type, Authorization",
+		},
 	});
 }
